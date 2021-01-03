@@ -16,3 +16,4 @@ subtitle: 데이터 과학 예술
 1. [문자로 경로 그리기](string2path.html)
 1. [색상 팔레트(palette)](colorfindr.html)
 1. [R 팩키지 스티커 만들기](sticker.html)
+1. [인물 스케치 - 조정식 부의장](face-sketch.html)
