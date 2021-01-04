@@ -1,0 +1,46 @@
+---
+layout: page
+title: "R ART"
+subtitle: "모자이크 인물사진"
+author:
+- name: "이광춘"
+  affiliation: "[Tidyverse Korea](https://www.facebook.com/groups/tidyverse/)"
+date: "`r Sys.Date()`"
+tags: ["데이터 과학", "Data Science", "데이터 사이언스", "스티커", "tidyverse", "모자이크", "brickr"]
+output:
+  html_document: 
+    include:
+      after_body: footer.html
+      before_body: header.html
+    theme: journal
+    toc: yes
+    toc_depth: 2
+    toc_float: true
+    highlight: tango
+    code_folding: show
+    number_section: true
+    self_contained: true
+bibliography: bibliography-art.bib
+csl: biomed-central.csl
+urlcolor: blue
+linkcolor: blue
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, message=FALSE, warning=FALSE,
+                      comment="", digits = 3, tidy = FALSE, prompt = FALSE, fig.align = 'center')
+
+```
+
+<center>
+
+</center>
+
+# `bricksr` [^lego-mosaic] {#lego-dataset}
+
+[^lego-mosaic]: [An Accounting and Data Science Nerd's Corner](https://joachim-gassen.github.io/2021/01/meet-lamg/)
+
+- [Lego Art Remix](https://lego-art-remix.debkbanerji.com/)
+
