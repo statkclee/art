@@ -64,11 +64,11 @@ logo_blank <- image_blank(width = 250, height= 60, color = "white", pseudo_image
 
 ## 광화문 로고 크기조정 -------------------------
 gwanghwamun_resized <- image_crop(gwanghwamun, geometry = "530x350+95+105") %>% 
-  image_scale("50")
+  image_scale("60")
 
 ## useR! Korea logo -------------------------
 R_user_group <- logo_blank %>% 
-  image_annotate("R 사용자회", size = 37, location = "+70+00", font = "NanumBarunGothic YetHangul")  %>% 
+  image_annotate("R 사용자회", size = 37, location = "+75+10", font = "NanumBarunGothic YetHangul")  %>% 
   image_composite(gwanghwamun_resized,  offset = "+10+5")
 
 R_user_group <- image_transparent(R_user_group, 'white')
