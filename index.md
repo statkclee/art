@@ -19,3 +19,4 @@ subtitle: 데이터 과학 예술
 1. [인물 스케치 - 조정식 부의장](face-sketch.html)
 1. [모자이크 인물사진](mosaic-figure.html)
 1. [`useR! 2021 Korea` 로고 제작](art-logo.html)
+1. [`R 사용자회` 로고 제작](art-r-user-group.html)
