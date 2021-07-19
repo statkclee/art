@@ -174,4 +174,35 @@ image_write(koRea_logo, path ="fig/koRea_logo.svg", format = "svg")
     - [koRea 컨퍼런스 SVG](fig/koRea_logo.png.svg)
 
 
+# 영문 koRea 로고 제작 {#koRea-logo-english}
+
+## koRea Conference 로고 {#koRea-logo-english}
+
+```{r koRea-make-logo-english}
+logo_blank <- image_blank(width = 270, height= 60, color = "white", pseudo_image = "", defines = NULL)
+
+## R 로고 크기조정 -------------------------
+R_logo_resized <- R_logo %>% 
+  image_scale("45") %>% 
+  image_transparent(color = "white")
+
+## useR! Korea logo -------------------------
+koRea_english_logo <- logo_blank %>% 
+  image_annotate("KO              EA", size = 20, location = "+5+25", font = "NanumBarunGothic YetHangul")  %>% 
+  image_annotate("Conference", size = 27, location = "+120+10", font = "NanumBarunGothic YetHangul")  %>% 
+  image_composite(R_logo_resized %>% image_rotate(degrees = -15), offset = "+32+00")
+
+koRea_english_logo <- image_transparent(koRea_english_logo, 'white')
+
+koRea_english_logo %>% 
+  image_resize("200%")
+```
+
+## 내보내기 {#export-logo-koRea-english}
+
+```{r export-logo-koRea-english}
+image_write(koRea_english_logo, path ="fig/koRea_english_logo.png", format = "png")
+image_write(koRea_english_logo, path ="fig/koRea_english_logo.svg", format = "svg")
+```
+
 
