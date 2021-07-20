@@ -140,7 +140,7 @@ R_logo
 ```
 
 
-## koRea 컨퍼런스 로고 {#koRea-logo}
+## koRea 컨퍼런스 로고 {#koRea-logo-conf}
 
 ```{r koRea-make-logo}
 logo_blank <- image_blank(width = 270, height= 60, color = "white", pseudo_image = "", defines = NULL)
@@ -176,7 +176,7 @@ image_write(koRea_logo, path ="fig/koRea_logo.svg", format = "svg")
 
 # 영문 koRea 로고 제작 {#koRea-logo-english}
 
-## koRea Conference 로고 {#koRea-logo-english}
+## koRea Conference 로고 {#koRea-logo-english-2}
 
 ```{r koRea-make-logo-english}
 logo_blank <- image_blank(width = 270, height= 60, color = "white", pseudo_image = "", defines = NULL)
@@ -243,5 +243,10 @@ koRea_vertical_logo %>%
 
 ```{r export-logo-koRea-vertical}
 image_write(koRea_vertical_logo, path ="fig/koRea_vertical_logo.png", format = "png")
-image_write(koRea_vertical_logo, path ="fig/koRea_vertical_logo.png", format = "svg")
+image_write(koRea_vertical_logo, path ="fig/koRea_vertical_logo.svg", format = "svg")
 ```
+
+- 로고 다운로드
+    - [가로형 koRea 컨퍼런스 PNG](fig/koRea_vertical_logo.png)
+    - [가로형 koRea 컨퍼런스 SVG](fig/koRea_vertical_logo.svg)
+
