@@ -206,3 +206,42 @@ image_write(koRea_english_logo, path ="fig/koRea_english_logo.svg", format = "sv
 ```
 
 
+# 세로 koRea 로고 제작 {#koRea-logo-vertical}
+
+가로형 R 컨퍼런스 로고가 때로는 가로형으로 정사각형을 만족할 때 더 좋은 시각적인 효과를 띄는 경우도 있다.
+
+```{r useR-logo-vertical}
+library(tidyverse)
+library(magick)
+
+R_logo <- image_read("fig/Rlogo.png")
+
+# 첫 화면 정의
+logo_blank <- image_blank(width = 250, height= 250, color = "white", pseudo_image = "", defines = NULL)
+
+? image_blank
+
+## R 로고 크기조정 -------------------------
+R_logo_resized <- R_logo %>% 
+  image_scale("85") %>% 
+  image_transparent(color = "white")
+
+## R conference logo -------------------------
+koRea_vertical_logo <- logo_blank %>% 
+  image_annotate("KO              EA", size = 37, location = "+20+50", font = "NanumBarunGothic YetHangul")  %>% 
+  image_composite(R_logo_resized %>% image_rotate(degrees = -15), offset = "+75+10") %>% 
+  image_annotate("컨퍼런스", size = 57, location = "+20+130", font = "NanumBarunGothic YetHangul")
+  
+
+koRea_vertical_logo <- image_transparent(koRea_vertical_logo, 'white')
+
+koRea_vertical_logo %>% 
+  image_resize("200%")
+```
+
+## 내보내기 {#export-logo-koRea-vertical}
+
+```{r export-logo-koRea-vertical}
+image_write(koRea_vertical_logo, path ="fig/koRea_vertical_logo.png", format = "png")
+image_write(koRea_vertical_logo, path ="fig/koRea_vertical_logo.png", format = "svg")
+```
