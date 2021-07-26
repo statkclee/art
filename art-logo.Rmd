@@ -119,7 +119,7 @@ useR_korea
 
 ```{r save-logo}
 image_write(useR_korea, path ="fig/useR_Korea.png", format = "png")
-image_write(useR_korea, path ="fig/useR_Korea.svg", format = "svg")
+# image_write(useR_korea, path ="fig/useR_Korea.svg", format = "svg")
 ```
 
 - `useR! 2021 Korea` 다운로드
@@ -166,7 +166,7 @@ koRea_logo %>%
 
 ```{r export-logo-koRea}
 image_write(koRea_logo, path ="fig/koRea_logo.png", format = "png")
-image_write(koRea_logo, path ="fig/koRea_logo.svg", format = "svg")
+# image_write(koRea_logo, path ="fig/koRea_logo.svg", format = "svg")
 ```
 
 - 로고 다운로드
@@ -202,7 +202,7 @@ koRea_english_logo %>%
 
 ```{r export-logo-koRea-english}
 image_write(koRea_english_logo, path ="fig/koRea_english_logo.png", format = "png")
-image_write(koRea_english_logo, path ="fig/koRea_english_logo.svg", format = "svg")
+# image_write(koRea_english_logo, path ="fig/koRea_english_logo.svg", format = "svg")
 ```
 
 
@@ -230,7 +230,7 @@ R_logo_resized <- R_logo %>%
 koRea_vertical_logo <- logo_blank %>% 
   image_annotate("KO              EA", size = 37, location = "+20+50", font = "NanumBarunGothic YetHangul")  %>% 
   image_composite(R_logo_resized %>% image_rotate(degrees = -15), offset = "+75+10") %>% 
-  image_annotate("컨퍼런스", size = 57, location = "+20+130", font = "NanumBarunGothic YetHangul")
+  image_annotate("컨퍼런스", size = 57, location = "+20+100", font = "NanumBarunGothic YetHangul")
   
 
 koRea_vertical_logo <- image_transparent(koRea_vertical_logo, 'white')
@@ -243,7 +243,7 @@ koRea_vertical_logo %>%
 
 ```{r export-logo-koRea-vertical}
 image_write(koRea_vertical_logo, path ="fig/koRea_vertical_logo.png", format = "png")
-image_write(koRea_vertical_logo, path ="fig/koRea_vertical_logo.svg", format = "svg")
+# image_write(koRea_vertical_logo, path ="fig/koRea_vertical_logo.svg", format = "svg")
 ```
 
 - 로고 다운로드
