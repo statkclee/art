@@ -20,3 +20,4 @@ subtitle: 데이터 과학 예술
 1. [모자이크 인물사진](mosaic-figure.html)
 1. [`useR! 2021 Korea` 로고 제작](art-logo.html)
 1. [`R 사용자회` 로고 제작](art-r-user-group.html)
+1. [졸업앨범 사진](art-masked-profile.html)
