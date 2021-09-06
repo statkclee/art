@@ -1,0 +1,98 @@
+---
+layout: page
+title: "R ART"
+subtitle: "`.mov` 동영상 &rarr; 로고 삽입 &rarr; `.gif`"
+author:
+- name: "이광춘"
+  affiliation: "[Tidyverse Korea](https://www.facebook.com/groups/tidyverse/)"
+date: "`r Sys.Date()`"
+tags: ["데이터 과학", "Data Science", "데이터 사이언스", "스티커", "tidyverse", "동영상", "Gif"]
+output:
+  html_document: 
+    include:
+      after_body: footer.html
+      before_body: header.html
+    theme: default
+    toc: yes
+    toc_depth: 2
+    toc_float: true
+    highlight: tango
+    code_folding: show
+    number_section: true
+    self_contained: true
+bibliography: bibliography-art.bib
+csl: biomed-central.csl
+urlcolor: blue
+linkcolor: blue
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, message=FALSE, warning=FALSE,
+                      comment="", digits = 3, tidy = FALSE, prompt = FALSE, fig.align = 'center')
+
+```
+
+
+![](fig/mov2gif.png)
+
+
+# 맥 동영상 &rarr; GIF {#gif-file}
+
+[`gifr`](https://github.com/LucyMcGowan/gifr) 팩키지를 활용하여 `.mov` 확장자를 갖는 동영상을 `.gif` 파일로 변환시킬 수 있다. `gifr` 팩키지 설치할 때 다음 옵션을 추가하면 쉽게 설치할 수 있으며 `ffmpeg`, `gifsicle`을 미리 설치해야 의존성 문제를 피할 수 있다.
+
+`devtools::install_github("LucyMcGowan/gifr", INSTALL_opts="--no-staged-install")`
+
+```{r mac-gif-file}
+library(tidyverse)
+library(gifr)
+
+make_gif(input = "fig/shinyapp_workflow.mov", output = "fig/shinyapp_workflow.gif")
+
+```
+
+![](fig/shinyapp_workflow.gif)
+
+
+
+[`gifr`](https://github.com/LucyMcGowan/gifr) 팩키지를 활용하여 `.mov` 확장자를 갖는 동영상을 `.gif` 파일로 변환시킬 수 있다.
+
+
+# GIF 텍스트와 이미지 추가 {#gif-file-annotation}
+
+GIF 파일에 로고와 같은 이미지를 부탁하고 텍스트를 추가시킬 수 있다.
+
+```{r make-gif-file}
+library(magick)
+
+# 공백 이미지
+blank_img <- image_blank(width = 600, height = 400, color = "none")
+
+# R 로고 추가
+logo <- image_read("https://jeroen.github.io/images/Rlogo.png") %>%
+  image_resize("100x50!")
+
+# 텍스트와 로고 추가
+blank_logo_img <- blank_img %>% 
+  image_composite(logo, 
+                  operator = "blend", compose_args="50",
+                  offset   = "+480+350") %>% 
+  image_annotate(text = "shinyapp Shift + Tab", 
+                 font = "mono",
+                 location = "+200+300", 
+                 size = 30, 
+                 color = "white") %>% 
+  image_transparent(color = "white")
+
+# GIF 파일 가져오기
+shiny_gif <- magick::image_read("fig/shinyapp_workflow.gif")
+
+shiny_text_gif <- image_composite(shiny_gif, blank_logo_img)
+
+shiny_text_gif %>% 
+  image_write(path = "fig/shiny_text_gif.gif")
+
+```
+
+![](fig/shiny_text_gif.gif)
