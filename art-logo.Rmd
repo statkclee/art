@@ -250,3 +250,62 @@ image_write(koRea_vertical_logo, path ="fig/koRea_vertical_logo.png", format = "
     - [가로형 koRea 컨퍼런스 PNG](fig/koRea_vertical_logo.png)
     - [가로형 koRea 컨퍼런스 SVG](fig/koRea_vertical_logo.svg)
 
+
+# R 로고 {#rlogo}
+
+[데이콘(Dacon)](https://dacon.io/) 후원으로 김지수 디자이너님이 R 로고를 직접 제작해 주셨습니다.
+한국 R 컨퍼런스 로고로 채용하여 지속적으로 활용될 듯 싶습니다.
+
+```{r rlogo-dacon}
+library(tidyverse)
+library(slickR)
+library(magick)
+
+rlogo_files <- fs::dir_ls("fig/rlogo/")
+
+rlogo_tbl <- tibble(filename = rlogo_files)
+
+slickR(obj = rlogo_tbl$filename)
+```
+
+파일 이미지가 너무 커서... 이를 적당히 축소("400")으로 가로를 지정한 후 로컬 파일에 저장시킨다.
+
+```{r rlogo-dacon-resized, eval = FALSE}
+# 이미지 크기 조정 (축소) -----------------------
+
+rlogo_img <- map(rlogo_files, image_read)
+
+rlogo_resize_img <- map(rlogo_img, image_resize, "400x")
+
+# 축소된 이미지 저장 -----------------------
+fs::dir_create(path = "fig/rlogo/resized")
+
+rlogo_resized_filenames <- glue::glue("fig/rlogo/resized/{fs::path_file(rlogo_files)}")
+
+map2(rlogo_resize_img, rlogo_resized_filenames, image_write)
+```
+
+다시 한번 작업할 결과를 확인해보자. 
+
+```{r rlogo-dacon-resized-print}
+rlogo_resized_files <- fs::dir_ls("fig/rlogo/resized")
+
+rlogo_resized_tbl <- tibble(filename = rlogo_resized_files)
+
+slickR(obj = rlogo_resized_tbl$filename)
+```
+
+## 한국 R 컨퍼런스 로고 {#logo-download} 
+
+한국 R 컨퍼런스 로고가 필요한 경우 다음을 다운로드해서 사용한다.
+
+- [bright영문가로 - download](fig/rlogo/bright영문가로.png)
+- [bright영문세로 - download](fig/rlogo/bright영문세로.png)
+- [bright한영가로 - download](fig/rlogo/bright한영가로.png)
+- [bright한영세로 - download](fig/rlogo/bright한영세로.png)
+- [dark영문가로 - download](fig/rlogo/dark영문가로.png)
+- [dark영문세로 - download](fig/rlogo/dark영문세로.png)
+- [dark한영가로 - download](fig/rlogo/dark한영가로.png)
+- [dark한영세로 - download](fig/rlogo/dark한영세로.png)
+
+
