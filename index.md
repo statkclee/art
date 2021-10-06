@@ -21,3 +21,7 @@ subtitle: 데이터 과학 예술
 1. [`useR! 2021 Korea` 로고 제작](art-logo.html)
 1. [`R 사용자회` 로고 제작](art-r-user-group.html)
 1. [졸업앨범 사진](art-masked-profile.html)
+1. [`.mov` 동영상 &rarr; 로고 삽입 &rarr; `.gif`](art-mov2gif.html)
+
+
+
