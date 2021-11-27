@@ -22,6 +22,7 @@ subtitle: 데이터 과학 예술
 1. [`R 사용자회` 로고 제작](art-r-user-group.html)
 1. [졸업앨범 사진](art-masked-profile.html)
 1. [`.mov` 동영상 &rarr; 로고 삽입 &rarr; `.gif`](art-mov2gif.html)
+1. [아래 숫자가 보이지 않는다면 당신은 지금:](art-color-test.html)
 
 
 
